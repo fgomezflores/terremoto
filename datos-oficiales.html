@@ -222,7 +222,7 @@
 
                 var mousemove = function (d) {
                   tooltip
-                    .html("<b>Lugar</b>: " + d.country + "<br><b>Fecha</b>: " + d.date)
+                    .html("<b>Lugar</b>: " + d.country + "<br><b>Fecha</b>: " + d.date+ "<br><b>Magnitud</b>: " + d.value)
                     .style("left", (d3.mouse(this)[0] + 90) + "px") // It is important to put the +90: other wise the tooltip is exactly where the point is an it creates a weird effect
                     .style("top", (d3.mouse(this)[1]) + "px")
                 }
@@ -254,8 +254,8 @@
               })
 
           </script>
-          <p>&nbsp;</p>
-          <p>El terremoto de Luzón de 2022 fue un evento sísmico que ocurrió el miércoles 27 de julio de 2022, a las
+          <p>Como se observa en la gráfica anterior, el punto más destacado se produjo el 27 de julio a primera hora en Filipinas con una magnitud de 7 sobre la escala de Ritcher.</p>
+          <p>Se corresponde con el terremoto de Luzón de 2022, que fue un evento sísmico que ocurrió el miércoles 27 de julio de 2022, a las
             08:43 hora local, en la isla de Luzón, Filipinas. El Servicio Geológico de Estados Unidos (USGS) informó que
             el terremoto tuvo una magnitud de 7,0 Mw con epicentro en la provincia de Abra. Al menos once personas
             murieron y 615 resultaron heridas.</p>
@@ -268,8 +268,10 @@
             <li>Wikipedia: <a href="https://es.wikipedia.org/wiki/Terremoto_de_Luz%C3%B3n_de_2022"
                 target="_blank">Terremoto de Luzón de 2022</a></li>
           </ul>
+          <p>Aunque en la anterior gráfica vemos que se producen otros eventos relevantes, como por ejemplo el 15 de agosto en las <a href="https://es.wikipedia.org/wiki/Islas_Kermadec">islas Kermadec</a>, no se ha detectado en el dataset esta repercusión en tweets.</p>
           <p>&nbsp;</p>
-          <p>&nbsp;</p>
+          <button type="button" class="btn btn-primary btn-lg px-4 me-sm-3"
+          onclick="window.open('conclusiones.html', '_self')">Qué podemos concluir de todo esto</button>
           <p>&nbsp;</p>
           <p>&nbsp;</p>
 
@@ -280,7 +282,8 @@
             })
           </script> -->
 
-
+          
+        <p>&nbsp;</p>
         </div>
     </div>
     </main>
