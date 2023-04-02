@@ -1,0 +1,182 @@
+<!-- MASTER ISIA  2022-23 UNIV. DE MALAGA -->
+<!-- INFORMATICA SOCIAL, TECNOLOGÍAS Y METODOS -->
+<!-- Francisco Jesús Gómez Flores -->
+<!-- Toma como base el sitio https://getbootstrap.com/docs/5.3/examples/ -->
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="Francisco Jesús Gómez Flores">
+  <title>Trabajo Unidad 2 - INFSOCTEC</title>
+
+
+
+  <script src="js/d3.v4.js"></script>
+  <link href="assets/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+
+    .b-example-divider {
+      height: 3rem;
+      background-color: rgba(0, 0, 0, .1);
+      border: solid rgba(0, 0, 0, .15);
+      border-width: 1px 0;
+      box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+    }
+
+    .b-example-vr {
+      flex-shrink: 0;
+      width: 1.5rem;
+      height: 100vh;
+    }
+
+    .bi {
+      vertical-align: -.125em;
+      fill: currentColor;
+    }
+
+    .nav-scroller {
+      position: relative;
+      z-index: 2;
+      height: 2.75rem;
+      overflow-y: hidden;
+    }
+
+    .nav-scroller .nav {
+      display: flex;
+      flex-wrap: nowrap;
+      padding-bottom: 1rem;
+      margin-top: -1px;
+      overflow-x: auto;
+      text-align: center;
+      white-space: nowrap;
+      -webkit-overflow-scrolling: touch;
+    }
+  </style>
+
+
+  <!-- Custom styles for this template -->
+  <link href="css/dashboard.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
+    <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6" href="index.html">Trabajo Unidad 2</a>
+    <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse"
+      data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="navbar-nav">
+      <div class=" ">
+        <div class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6"><img src="images/logo-uma.png"
+            style="margin-right: 20px;"> Master ISIA (Curso 2022-23) | Informática Social: tecnología y métodos</div>
+      </div>
+    </div>
+  </header>
+
+  <div class="container-fluid">
+    <div class="row">
+      <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+        <div class="position-sticky pt-3 sidebar-sticky">
+          <ul class="nav flex-column">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="index.html">
+                <span class="align-text-bottom"><img src="images/home.svg" width="16"></span>
+                Inicio
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="contexto.html">
+                <span class="align-text-bottom"><img src="images/book-open.svg" width="16"></span>
+                Contexto
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="que-esta-pasando.html">
+                <span class="align-text-bottom"><img src="images/frown.svg" width="16"></span>
+                ¿Qué está pasando?
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="es-un-terremoto.html">
+                <spanclass="align-text-bottom"><img src="images/alert-triangle.svg" width="16"></span>
+                Sí, ¡es un terremoto!
+              </a>
+            </li>
+            
+            <li class="nav-item">
+              <a class="nav-link" href="datos-oficiales.html">
+                <spanclass="align-text-bottom"><img src="images/bar-chart-2.svg" width="16"></span>
+                Los datos oficiales
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="conclusiones.html">
+                <span class="align-text-bottom"><img src="images/layers.svg" width="16"></span>
+                Conclusiones
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+
+        <div class="container">
+          <p>&nbsp;</p>
+          <h2>Contexto</h2>
+          <p>El planteamiento de este trabajo toma como base los ejercicios desarrollados en temas anteriores de esta
+            Unidad 2. En este aspecto se destacan dos:</p>
+
+          <p>1. <b>Analizando los datos con SQL.</b></p>
+          <div class="col-lg-6 offset-lg-1 p-1 overflow-hidden shadow-lg">
+            <video width="500" controls>
+              <source src="media/video-analizando-datos-sql.mp4" type="video/mp4">
+              Your browser does not support HTML video.
+            </video>
+          </div>
+          <p>&nbsp;</p>
+          <p>2. <b>Visualización de datos tool-free</b> (<a href="pdf/visualizacion-tweets-terremoto.pdf"
+              target="_blank">pdf</a>)</p>
+
+          <div class="col-lg-6 offset-lg-1 p-1 overflow-hidden shadow-lg">
+            <a href="pdf/visualizacion-tweets-terremoto.pdf" target="_blank"><img
+                  src="images/visualizacion-tweets-terrem.jpg" border="0" title="Haz clic para ampliar"></a>
+          </div>
+          <p>&nbsp;</p>
+          <button type="button" class="btn btn-primary btn-lg px-4 me-sm-3"
+            onclick="window.open('que-esta-pasando.html', '_self')">¿Qué está pasando?</button>
+          <p>&nbsp;</p>
+        </div>
+    </div>
+    </main>
+  </div>
+  </div>
+
+
+  <script src="assets/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js"
+    integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE"
+    crossorigin="anonymous"></script> -->
+  <!-- <script src="js/dashboard.js"></script> -->
+</body>
+
+</html>

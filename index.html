@@ -1,0 +1,189 @@
+<!-- MASTER ISIA  2022-23 UNIV. DE MALAGA -->
+<!-- INFORMATICA SOCIAL, TECNOLOGÍAS Y METODOS -->
+<!-- Francisco Jesús Gómez Flores -->
+<!-- Toma como base el sitio https://getbootstrap.com/docs/5.3/examples/ -->
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="Francisco Jesús Gómez Flores">
+  <title>Trabajo Unidad 2 - INFSOCTEC</title>
+
+
+
+  <script src="js/d3.v4.js"></script>
+  <link href="assets/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+
+    .b-example-divider {
+      height: 3rem;
+      background-color: rgba(0, 0, 0, .1);
+      border: solid rgba(0, 0, 0, .15);
+      border-width: 1px 0;
+      box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+    }
+
+    .b-example-vr {
+      flex-shrink: 0;
+      width: 1.5rem;
+      height: 100vh;
+    }
+
+    .bi {
+      vertical-align: -.125em;
+      fill: currentColor;
+    }
+
+    .nav-scroller {
+      position: relative;
+      z-index: 2;
+      height: 2.75rem;
+      overflow-y: hidden;
+    }
+
+    .nav-scroller .nav {
+      display: flex;
+      flex-wrap: nowrap;
+      padding-bottom: 1rem;
+      margin-top: -1px;
+      overflow-x: auto;
+      text-align: center;
+      white-space: nowrap;
+      -webkit-overflow-scrolling: touch;
+    }
+  </style>
+
+
+  <!-- Custom styles for this template -->
+  <link href="css/dashboard.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
+    <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6" href="index.html">Trabajo Unidad 2</a>
+    <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse"
+      data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="navbar-nav">
+      <div class=" ">
+        <div class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6"><img src="images/logo-uma.png"
+            style="margin-right: 20px;"> Master ISIA (Curso 2022-23) | Informática Social: tecnología y métodos</div>
+      </div>
+    </div>
+  </header>
+
+  <div class="container-fluid">
+    <div class="row">
+      <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+        <div class="position-sticky pt-3 sidebar-sticky">
+          <ul class="nav flex-column">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="index.html">
+                <span class="align-text-bottom"><img src="images/home.svg" width="16"></span>
+                Inicio
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contexto.html">
+                <span class="align-text-bottom"><img src="images/book-open.svg" width="16"></span>
+                Contexto
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="que-esta-pasando.html">
+                <span class="align-text-bottom"><img src="images/frown.svg" width="16"></span>
+                ¿Qué está pasando?
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="es-un-terremoto.html">
+                <spanclass="align-text-bottom"><img src="images/alert-triangle.svg" width="16"></span>
+                Sí, ¡es un terremoto!
+              </a>
+            </li>
+            
+            <li class="nav-item">
+              <a class="nav-link" href="datos-oficiales.html">
+                <spanclass="align-text-bottom"><img src="images/bar-chart-2.svg" width="16"></span>
+                Los datos oficiales
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="conclusiones.html">
+                <span class="align-text-bottom"><img src="images/layers.svg" width="16"></span>
+                Conclusiones
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+        <div
+          class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-left pt-3 pb-2 mb-3 border-bottom">
+          <h3 style="color:cornflowerblue">Trabajo Unidad 2: visualización de datos con D3</h3>
+          <h3 style="color: darkblue;">Análisis de datos sobre un terremoto en Twitter</h3>
+        </div>
+        <div class="container">
+          <p>Francisco Jesús Gómez Flores (<a href="mailto:fgflores@uma.es">fgflores@uma.es</a>)</p>
+          <h2>Introducción</h2>
+          <p>El presente trabajo se enmarca dentro de la Unidad 2 de la asignatura
+            “Informática Social: tecnologías y métodos” donde se completa el proyecto de visualización que se ha estado
+            llevando a cabo durante esta segunda parte de la asignatura.</p>
+          <p>El ejercicio se centra en la <b>visualización de datos con D3</b>. Mediante este framework de desarrollo se
+            realiza una visualización en profundidad de una visión de los datos que se han trabajado durante el curso.</p>          
+            <p>En este sentido, se utilizará el <a
+              href="https://www.kaggle.com/datasets/bwandowando/-lumindol-ba-tweets-on-earthquakes"
+              target="_blank">dataset</a> tweets que contienen los <b>hashtags #Lindol y #EarthquakePH</b> del <b>27
+            de julio al 3 de septiembre de 2022</b> obtenido del repositorio <b>Kaggel</b>. </p>
+            <p>Adicionalmente, también se usará una <a
+              href="https://earthquake.usgs.gov/earthquakes/search/" target="_blank">fuente de información oficial</a>
+            que tiene el registro de terremotos producidos entre el 27 de julio al 3 de septiembre de 2022. En concreto del
+            <b>Servicio Geológico de Estados Unidos​​ </b>o USGS.
+            <h2>Tecnología utilizada</h2>
+            <p>Para el desarrollo de este trabajo se utiliza la siguiente tecnología:</p>
+            <ul>
+              <li><b><a href="https://getbootstrap.com" target="_blank">Bootstrap</a></b> para la construcción del espacio web.</li>
+              <li><b>D3</b> para la visualización de datos, en concreto, se utiliza <a href="https://d3-graph-gallery.com/" target="_blank">D3.js graph gallery</a></li>
+              <li>Para los análisis previos de datos se ha utilizado, además de Oracle SQL Developer (ya utilizada en anteriores ejercicios), las herramientas iNZight y Oracle Analitics Desktop.</li>
+              <li>Asimismo, se han utilizado para la explotación de datos Python y las herramientas Microsoft Access y Excel.</li>
+            </ul>
+            <p>&nbsp;</p>
+            <button type="button" class="btn btn-primary btn-lg px-4 me-sm-3" onclick="window.open('contexto.html', '_self')">Veamos el contexto en el que se enmcarca este análisis</button>
+            <p>&nbsp;</p>
+          </p>
+        </div>
+    </div>
+    </main>
+  </div>
+  </div>
+
+
+  <script src="assets/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js"
+    integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE"
+    crossorigin="anonymous"></script> -->
+  <!-- <script src="js/dashboard.js"></script> -->
+</body>
+
+</html>

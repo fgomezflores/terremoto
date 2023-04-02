@@ -1,0 +1,349 @@
+<!-- MASTER ISIA  2022-23 UNIV. DE MALAGA -->
+<!-- INFORMATICA SOCIAL, TECNOLOGÍAS Y METODOS -->
+<!-- Francisco Jesús Gómez Flores -->
+<!-- Toma como base el sitio https://getbootstrap.com/docs/5.3/examples/ -->
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="Francisco Jesús Gómez Flores">
+  <title>Trabajo Unidad 2 - INFSOCTEC</title>
+
+
+
+  <script src="js/d3.v4.js"></script>
+  <link href="assets/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+
+    .b-example-divider {
+      height: 3rem;
+      background-color: rgba(0, 0, 0, .1);
+      border: solid rgba(0, 0, 0, .15);
+      border-width: 1px 0;
+      box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+    }
+
+    .b-example-vr {
+      flex-shrink: 0;
+      width: 1.5rem;
+      height: 100vh;
+    }
+
+    .bi {
+      vertical-align: -.125em;
+      fill: currentColor;
+    }
+
+    .nav-scroller {
+      position: relative;
+      z-index: 2;
+      height: 2.75rem;
+      overflow-y: hidden;
+    }
+
+    .nav-scroller .nav {
+      display: flex;
+      flex-wrap: nowrap;
+      padding-bottom: 1rem;
+      margin-top: -1px;
+      overflow-x: auto;
+      text-align: center;
+      white-space: nowrap;
+      -webkit-overflow-scrolling: touch;
+    }
+  </style>
+
+
+  <!-- Custom styles for this template -->
+  <link href="css/dashboard.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
+    <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6" href="index.html">Trabajo Unidad 2</a>
+    <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse"
+      data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="navbar-nav">
+      <div class=" ">
+        <div class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6"><img src="images/logo-uma.png"
+            style="margin-right: 20px;"> Master ISIA (Curso 2022-23) | Informática Social: tecnología y métodos</div>
+      </div>
+    </div>
+  </header>
+
+  <div class="container-fluid">
+    <div class="row">
+      <<nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+        <div class="position-sticky pt-3 sidebar-sticky">
+          <ul class="nav flex-column">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="index.html">
+                <span class="align-text-bottom"><img src="images/home.svg" width="16"></span>
+                Inicio
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contexto.html">
+                <span class="align-text-bottom"><img src="images/book-open.svg" width="16"></span>
+                Contexto
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="que-esta-pasando.html">
+                <span class="align-text-bottom"><img src="images/frown.svg" width="16"></span>
+                ¿Qué está pasando?
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="es-un-terremoto.html">
+                <spanclass="align-text-bottom"><img src="images/alert-triangle.svg" width="16"></span>
+                Sí, ¡es un terremoto!
+              </a>
+            </li>
+            
+            <li class="nav-item">
+              <a class="nav-link" href="datos-oficiales.html">
+                <spanclass="align-text-bottom"><img src="images/bar-chart-2.svg" width="16"></span>
+                Los datos oficiales
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="conclusiones.html">
+                <span class="align-text-bottom"><img src="images/layers.svg" width="16"></span>
+                Conclusiones
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+
+        <div class="container">
+          <p>&nbsp;</p>
+          <h2>Sí, ¡es un terremoto!</h2>
+          <p>En esta sección nos vamos a centrar en el hecho de cómo los usuarios que han sentido el temblor alertan a sus seguidores de lo que acaba de ocurrir.</p>
+          <p>En este primer gráfico vemos la relación del número de seguidores o followers (x) y el número de usuarios a los que siguen o following (y) de los usuarios que escribieron
+          los tweets el 27/07/2022.</p>
+          <p>Se observa que la masa de puntos se encuentra en la zona inferior izquierda del eje x e y, por lo que el colectivo social a la hora de usar las herramientas de retweet y favoritos se establece en una horquilla de 2000 usuarios tanto en followers como en following. </p> 
+<p>Por tanto, se cuenta con una masa de usuarios vinculados importante a la hora de trasladar una alerta de este tipo de una manera relativamente rápida. </p>
+          <p><b>Relación de followers (x) y following (y) de los usuarios que escribieron
+              los tweets el 27/07/2022:</b></p>
+          <!-- Create a div where the graph will take place -->
+          <div id="my_dataviz"></div>
+
+          <script>
+
+            // set the dimensions and margins of the graph
+            var margin = { top: 10, right: 30, bottom: 30, left: 60 },
+              width = 600 - margin.left - margin.right,
+              height = 450 - margin.top - margin.bottom;
+
+            // append the svg object to the body of the page
+            var svg = d3.select("#my_dataviz")
+              .append("svg")
+              .attr("width", width + margin.left + margin.right)
+              .attr("height", height + margin.top + margin.bottom)
+              .append("g")
+              .attr("transform",
+                "translate(" + margin.left + "," + margin.top + ")");
+
+            //Read the data
+            d3.csv("data/consulta4.csv", function (data) {
+
+              // Add X axis
+              var x = d3.scaleLinear()
+                .domain([0, 10000])
+                .range([0, width]);
+              svg.append("g")
+                .attr("transform", "translate(0," + height + ")")
+                .call(d3.axisBottom(x));
+
+              // Add Y axis
+              var y = d3.scaleLinear()
+                .domain([0, 8000])
+                .range([height, 0]);
+              svg.append("g")
+                .call(d3.axisLeft(y));
+
+              // Add dots
+              svg.append('g')
+                .selectAll("dot")
+                .data(data)
+                .enter()
+                .append("circle")
+                .attr("cx", function (d) { return x(d.followers); })
+                .attr("cy", function (d) { return y(d.following); })
+                .attr("r", 1.5)
+                .style("fill", "#69b3a2")
+
+            })
+
+          </script>
+
+
+          <p>En el siguiente gráfico se observa la relación de retweets y favoritos de los usuarios participantes en las
+            conversaciones relacionadas con el terremoto. Esta comparativa se realiza con el objetivo de profundizar en
+            el comportamiento de los usuarios a la hora de trasladar a la comunidad este tipo de mensajes.</p>
+          <p>¿Los usuarios prefieren hacerlo vía retweet? ¿o marcando el tweet como favorito? Como se observa y, en
+            nuestra opinión, en este tipo de situaciones lo usuarios utilizan sobre todo el retweets a la hora de
+            informar y alertar de sus seguidores de este evento de estas características.</p>
+
+
+          <p><b>Número de retweets y favoritos de los tweets producidos el 27-07-2022:</b></p>
+          <!-- Initialize a select button -->
+          <select id="selectButton"></select>
+
+          <!-- Create a div where the graph will take place -->
+          <div id="my_dataviz2"></div>
+
+          <!-- Color Scale -->
+          <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+
+          <script>
+
+            // set the dimensions and margins of the graph
+            var margin2 = { top: 10, right: 100, bottom: 30, left: 30 },
+              width = 600 - margin2.left - margin2.right,
+              height = 400 - margin2.top - margin2.bottom;
+
+            // append the svg object to the body of the page
+            var svg2 = d3.select("#my_dataviz2")
+              .append("svg")
+              .attr("width", width + margin2.left + margin2.right)
+              .attr("height", height + margin2.top + margin2.bottom)
+              .append("g")
+              .attr("transform",
+                "translate(" + margin2.left + "," + margin2.top + ")");
+
+            //Read the data
+            d3.csv("data/consulta5.csv", function (data) {
+
+              // List of groups (here I have one group per column)
+              var allGroup = ["retweets", "favorite_count"]
+
+              // add the options to the button
+              d3.select("#selectButton")
+                .selectAll('myOptions')
+                .data(allGroup)
+                .enter()
+                .append('option')
+                .text(function (d) { return d; }) // text showed in the menu
+                .attr("value", function (d) { return d; }) // corresponding value returned by the button
+
+              // Add X axis --> it is a date format
+              var x = d3.scaleLinear()
+                .domain([0, 2934])
+                .range([0, width]);
+              svg2.append("g")
+                .attr("transform", "translate(0," + height + ")")
+                .call(d3.axisBottom(x));
+
+              // Add Y axis
+              var y = d3.scaleLinear()
+                .domain([0, 600])
+                .range([height, 0]);
+              svg2.append("g")
+                .call(d3.axisLeft(y));
+
+              // Initialize line with group a
+              var line = svg2
+                .append('g')
+                .append("path")
+                .datum(data)
+                .attr("d", d3.line()
+                  .x(function (d) { return x(+d.date) })
+                  .y(function (d) { return y(+d.retweets) })
+                )
+                .attr("stroke", "black")
+                .style("stroke-width", 4)
+                .style("fill", "none")
+
+              // Initialize dots with group a
+              var dot = svg2
+                .selectAll('circle')
+                .data(data)
+                .enter()
+                .append('circle')
+                .attr("cx", function (d) { return x(+d.date) })
+                .attr("cy", function (d) { return y(+d.retweets) })
+                .attr("r", 7)
+                .style("fill", "#69b3a2")
+
+
+              // A function that update the chart
+              function update(selectedGroup) {
+
+                // Create new data with the selection?
+                var dataFilter = data.map(function (d) { return { time: d.date, value: d[selectedGroup] } })
+
+                // Give these new data to update line
+                line
+                  .datum(dataFilter)
+                  .transition()
+                  .duration(1000)
+                  .attr("d", d3.line()
+                    .x(function (d) { return x(+d.time) })
+                    .y(function (d) { return y(+d.value) })
+                  )
+                dot
+                  .data(dataFilter)
+                  .transition()
+                  .duration(1000)
+                  .attr("cx", function (d) { return x(+d.time) })
+                  .attr("cy", function (d) { return y(+d.value) })
+              }
+
+              // When the button is changed, run the updateChart function
+              d3.select("#selectButton").on("change", function (d) {
+                // recover the option that has been chosen
+                var selectedOption = d3.select(this).property("value")
+                // run the updateChart function with this selected option
+                update(selectedOption)
+              })
+
+            })
+
+
+          </script>
+          <p>&nbsp;</p>
+          <button type="button" class="btn btn-primary btn-lg px-4 me-sm-3"
+            onclick="window.open('datos-oficiales.html', '_self')">Qué paso oficialmente</button>
+          <p>&nbsp;</p>
+
+        </div>
+    </div>
+    </main>
+  </div>
+  </div>
+
+
+  <script src="assets/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js"
+    integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE"
+    crossorigin="anonymous"></script> -->
+  <!-- <script src="js/dashboard.js"></script> -->
+</body>
+
+</html>

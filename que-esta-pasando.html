@@ -1,0 +1,468 @@
+<!-- MASTER ISIA  2022-23 UNIV. DE MALAGA -->
+<!-- INFORMATICA SOCIAL, TECNOLOGÍAS Y METODOS -->
+<!-- Francisco Jesús Gómez Flores -->
+<!-- Toma como base el sitio https://getbootstrap.com/docs/5.3/examples/ -->
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="Francisco Jesús Gómez Flores">
+  <title>Trabajo Unidad 2 - INFSOCTEC</title>
+
+
+
+  <script src="js/d3.v4.js"></script>
+  <link href="assets/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+
+    .b-example-divider {
+      height: 3rem;
+      background-color: rgba(0, 0, 0, .1);
+      border: solid rgba(0, 0, 0, .15);
+      border-width: 1px 0;
+      box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+    }
+
+    .b-example-vr {
+      flex-shrink: 0;
+      width: 1.5rem;
+      height: 100vh;
+    }
+
+    .bi {
+      vertical-align: -.125em;
+      fill: currentColor;
+    }
+
+    .nav-scroller {
+      position: relative;
+      z-index: 2;
+      height: 2.75rem;
+      overflow-y: hidden;
+    }
+
+    .nav-scroller .nav {
+      display: flex;
+      flex-wrap: nowrap;
+      padding-bottom: 1rem;
+      margin-top: -1px;
+      overflow-x: auto;
+      text-align: center;
+      white-space: nowrap;
+      -webkit-overflow-scrolling: touch;
+    }
+  </style>
+
+
+  <!-- Custom styles for this template -->
+  <link href="css/dashboard.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
+    <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6" href="index.html">Trabajo Unidad 2</a>
+    <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse"
+      data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="navbar-nav">
+      <div class=" ">
+        <div class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6"><img src="images/logo-uma.png"
+            style="margin-right: 20px;"> Master ISIA (Curso 2022-23) | Informática Social: tecnología y métodos</div>
+      </div>
+    </div>
+  </header>
+
+  <div class="container-fluid">
+    <div class="row">
+      <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+        <div class="position-sticky pt-3 sidebar-sticky">
+          <ul class="nav flex-column">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="index.html">
+                <span class="align-text-bottom"><img src="images/home.svg" width="16"></span>
+                Inicio
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contexto.html">
+                <span class="align-text-bottom"><img src="images/book-open.svg" width="16"></span>
+                Contexto
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="que-esta-pasando.html">
+                <span class="align-text-bottom"><img src="images/frown.svg" width="16"></span>
+                ¿Qué está pasando?
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="es-un-terremoto.html">
+                <spanclass="align-text-bottom"><img src="images/alert-triangle.svg" width="16"></span>
+                Sí, ¡es un terremoto!
+              </a>
+            </li>
+            
+            <li class="nav-item">
+              <a class="nav-link" href="datos-oficiales.html">
+                <spanclass="align-text-bottom"><img src="images/bar-chart-2.svg" width="16"></span>
+                Los datos oficiales
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="conclusiones.html">
+                <span class="align-text-bottom"><img src="images/layers.svg" width="16"></span>
+                Conclusiones
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+
+        <div class="container">
+          <p>&nbsp;</p>
+          <h2>Qué está pasando</h2>
+          <p>En esta sección nos vamos a centrar en comportamiento de los usuarios cuando sienten un terremoto.</p>
+          <p>En este primer gráfico se observa la evolución del número de tweets desde el 27 de julio al 3 de septiembre
+            de 2022. El gráfico es interactivo y, si seleccionamos con el ratón la primera parte del eje x, se ve que el
+            día 27 de julio es cuando se experimenta un pico más alto de tweets.</p>
+          <p>Como se ha explicado anteriormente, estos tweets proceden de un dataset que contienen los hashtag
+            “earthquakePH” y “lindol”. Por tanto, el citado pico de tweets es indicio que en esas fechas se produjo un
+            fuerte seísmo. Ese será el punto de inicio del análisis que se verá a continuación.</p>
+          <p>Por otro lado, en la evaluación temporal se observa picos de tweets no tan pronunciados que pueden deberse
+            a otros seísmos más pequeños (en otro lugar o réplicas del anterior) o ruido que se produce ya que es normal
+            que los usuarios introduzcan tweets con etiquetas populares en un determinado momento, pero que su contenido
+            nada tiene que ver.</p>
+          <p>Si se selecciona con el ratón, dentro del gráfico, el area entre el 27 y 30 de julio se ven los datos con
+            más detalle. Para volver al estado inicial haz doble clic sobre el propio gráfico.</p>
+
+          <b>Número de tweets con las etiquetas #EarthquakePH y #Lindol entre el 27-07-2022 y el 03-09-2022:</b>
+          <!-- Create a div where the graph will take place -->
+          <div id="my_dataviz"></div>
+
+          <script>
+
+            // set the dimensions and margins of the graph
+            var margin = { top: 10, right: 30, bottom: 0, left: 40 },
+              width = 600 - margin.left - margin.right,
+              height = 450 - margin.top - margin.bottom;
+
+            // append the svg object to the body of the page
+            var svg = d3.select("#my_dataviz")
+              .append("svg")
+              .attr("width", width + margin.left + margin.right)
+              .attr("height", height + margin.top + margin.bottom)
+              .append("g")
+              .attr("transform",
+                "translate(" + margin.left + "," + margin.top + ")");
+
+            //Read the data
+            d3.csv("data/consulta1.csv",
+
+              // When reading the csv, I must format variables:
+              function (d) {
+                return { date: d3.timeParse("%Y-%m-%d %H:%M")(d.date), value: d.value }
+              },
+
+              // Now I can use this dataset:
+              function (data) {
+
+                // Add X axis --> it is a date format
+                var x = d3.scaleTime()
+                  .domain(d3.extent(data, function (d) { return d.date; }))
+                  .range([0, width]);
+                xAxis = svg.append("g")
+                  .attr("transform", "translate(0," + height + ")")
+                  .call(d3.axisBottom(x));
+
+                // Add Y axis
+                var y = d3.scaleLinear()
+                  .domain([0, d3.max(data, function (d) { return +d.value; })])
+                  .range([height, 0]);
+                yAxis = svg.append("g")
+                  .call(d3.axisLeft(y));
+
+                // Add a clipPath: everything out of this area won't be drawn.
+                var clip = svg.append("defs").append("svg:clipPath")
+                  .attr("id", "clip")
+                  .append("svg:rect")
+                  .attr("width", width)
+                  .attr("height", height)
+                  .attr("x", 0)
+                  .attr("y", 0);
+
+                // Add brushing
+                var brush = d3.brushX()                   // Add the brush feature using the d3.brush function
+                  .extent([[0, 0], [width, height]])  // initialise the brush area: start at 0,0 and finishes at width,height: it means I select the whole graph area
+                  .on("end", updateChart)               // Each time the brush selection changes, trigger the 'updateChart' function
+
+                // Create the line variable: where both the line and the brush take place
+                var line = svg.append('g')
+                  .attr("clip-path", "url(#clip)")
+
+                // Add the line
+                line.append("path")
+                  .datum(data)
+                  .attr("class", "line")  // I add the class line to be able to modify this line later on.
+                  .attr("fill", "none")
+                  .attr("stroke", "steelblue")
+                  .attr("stroke-width", 1.5)
+                  .attr("d", d3.line()
+                    .x(function (d) { return x(d.date) })
+                    .y(function (d) { return y(d.value) })
+                  )
+
+                // Add the brushing
+                line
+                  .append("g")
+                  .attr("class", "brush")
+                  .call(brush);
+
+                // A function that set idleTimeOut to null
+                var idleTimeout
+                function idled() { idleTimeout = null; }
+
+                // A function that update the chart for given boundaries
+                function updateChart() {
+
+                  // What are the selected boundaries?
+                  extent = d3.event.selection
+
+                  // If no selection, back to initial coordinate. Otherwise, update X axis domain
+                  if (!extent) {
+                    if (!idleTimeout) return idleTimeout = setTimeout(idled, 350); // This allows to wait a little bit
+                    x.domain([4, 8])
+                  } else {
+                    x.domain([x.invert(extent[0]), x.invert(extent[1])])
+                    line.select(".brush").call(brush.move, null) // This remove the grey brush area as soon as the selection has been done
+                  }
+
+                  // Update axis and line position
+                  xAxis.transition().duration(1000).call(d3.axisBottom(x))
+                  line
+                    .select('.line')
+                    .transition()
+                    .duration(1000)
+                    .attr("d", d3.line()
+                      .x(function (d) { return x(d.date) })
+                      .y(function (d) { return y(d.value) })
+                    )
+                }
+
+                // If user double click, reinitialize the chart
+                svg.on("dblclick", function () {
+                  x.domain(d3.extent(data, function (d) { return d.date; }))
+                  xAxis.transition().call(d3.axisBottom(x))
+                  line
+                    .select('.line')
+                    .transition()
+                    .attr("d", d3.line()
+                      .x(function (d) { return x(d.date) })
+                      .y(function (d) { return y(d.value) })
+                    )
+                });
+
+              })
+
+          </script>
+          <p>En el siguiente gráfico vamos a ver en qué idioma se desarrolla la conversación. En este caso predomina el
+            inglés y el <a href="https://es.wikipedia.org/wiki/Idioma_tagalo" target="_blank">tagalo</a>.</p>
+          <p> Este último circunscribe la conversación a un ámbito linguistico concreto que puede ayudar corroborar,
+            geográficamente, dónde se ha producido el evento que ha motivado tantos tweets.</p>
+
+          <b>Número de tweets según el idioma utilizado en los mismos el 27-07-2022:</b>
+          <!-- Create a div where the graph will take place -->
+          <div id="my_dataviz2"></div>
+
+          <script>
+
+            // set the dimensions and margins of the graph
+            var margin2 = { top: 10, right: 30, bottom: 90, left: 40 },
+              width = 600 - margin.left - margin.right,
+              height = 400 - margin.top - margin.bottom;
+
+            // append the svg object to the body of the page
+            var svg2 = d3.select("#my_dataviz2")
+              .append("svg")
+              .attr("width", width + margin2.left + margin2.right)
+              .attr("height", height + margin2.top + margin2.bottom)
+              .append("g")
+              .attr("transform",
+                "translate(" + margin2.left + "," + margin2.top + ")");
+
+            // Parse the Data
+            d3.csv("data/consulta3.csv", function (data) {
+
+              // X axis
+              var x = d3.scaleBand()
+                .range([0, width])
+                .domain(data.map(function (d) { return d.idioma; }))
+                .padding(1);
+              svg2.append("g")
+                .attr("transform", "translate(0," + height + ")")
+                .call(d3.axisBottom(x))
+                .selectAll("text")
+                .attr("transform", "translate(-10,0)rotate(-45)")
+                .style("text-anchor", "end");
+
+              // Add Y axis
+              var y = d3.scaleLinear()
+                .domain([0, 30000])
+                .range([height, 0]);
+              svg2.append("g")
+                .call(d3.axisLeft(y));
+
+              // Lines
+              svg2.selectAll("myline")
+                .data(data)
+                .enter()
+                .append("line")
+                .attr("x1", function (d) { return x(d.idioma); })
+                .attr("x2", function (d) { return x(d.idioma); })
+                .attr("y1", function (d) { return y(d.value); })
+                .attr("y2", y(0))
+                .attr("stroke", "grey")
+
+              // Circles
+              svg2.selectAll("mycircle")
+                .data(data)
+                .enter()
+                .append("circle")
+                .attr("cx", function (d) { return x(d.idioma); })
+                .attr("cy", function (d) { return y(d.value); })
+                .attr("r", "4")
+                .style("fill", "#69b3a2")
+                .attr("stroke", "black")
+            })
+
+          </script>
+
+          <p>Por último, se analizan los principales hashtag del 27 de julio de 2022 que estaban junto a #EarthquakePH y
+            #Lindol.</p>
+          <p>Para esta extracción de datos se ha utilizado Python (<a
+              href="https://www.geeksforgeeks.org/python-extract-hashtags-from-text"
+              target="_blank">https://www.geeksforgeeks.org/python-extract-hashtags-from-text</a>)</p>
+          <p>Respecto a los hashtag más utilizados, además de los relacionados con terremoto, se destacan:</p>
+          <ul>
+            <li>Philippines.</li>
+            <li>NasaanAngPangulo (en tagalo, "¿Dónde está el presidente?").</li>
+            <li><a href="https://es.wikipedia.org/wiki/El_Abra_(Filipinas)" target="_blank">Abra</a> (provincia de
+              Filipinas).</li>
+            <li>iFelt_AbraEarthquake.</li>
+            <li><a href="https://es.wikipedia.org/wiki/Vig%C3%A1n" target="_blank">Vigan (ciudad de Filipinas).</a></li>
+
+          </ul>
+          <p>Estos nos da información sobre la ubicación geográfica donde se ha producido el seísmo (Filipinas, en
+            concreto en la provincia de Abra).</p>
+          <p>Se hace notar otros tweets como BarcaJuve que nada tienen que ver con el terremoto pero que es ejemplo del
+            (mal)comportamiento que los
+            usuarios tienen en este tipo de redes sociales a la hora de difundir mensajes.</p>
+
+          <p>No se puede utilizar el campo Location o localización propio de los tweets ya que la mayoría no incorpora
+            información relevante sobre la localización y la mayoría de ellos han sido personalizados por los usuarios
+            con mensajes de todo tipo.
+          <p><b>Top16 hashtags utilizados el 27-07-2022 (junto a #EarthquakePH y #Lindol):</b></p>
+          <div id="my_dataviz3"></div>
+
+          <script>
+
+
+            // set the dimensions and margins of the graph
+            var margin3 = { top: 10, right: 30, bottom: 90, left: 120 },
+              width = 600 - margin.left - margin.right,
+              height = 400 - margin.top - margin.bottom;
+
+            // append the svg object to the body of the page
+            var svg3 = d3.select("#my_dataviz3")
+              .append("svg")
+              .attr("width", width + margin3.left + margin3.right)
+              .attr("height", height + margin3.top + margin3.bottom)
+              .append("g")
+              .attr("transform",
+                "translate(" + margin3.left + "," + margin3.top + ")");
+
+            // Parse the Data
+            d3.csv("data/consulta2.csv", function (data) {
+
+              // Add X axis
+              var x = d3.scaleLinear()
+                .domain([0, 4300])
+                .range([0, width]);
+              svg3.append("g")
+                .attr("transform", "translate(0," + height + ")")
+                .call(d3.axisBottom(x))
+                .selectAll("text")
+                .attr("transform", "translate(-10,0)rotate(-45)")
+                .style("text-anchor", "end");
+
+              // Y axis
+              var y = d3.scaleBand()
+                .range([0, height])
+                .domain(data.map(function (d) { return d.hashtag; }))
+                .padding(.1);
+              svg3.append("g")
+                .call(d3.axisLeft(y))
+
+              //Bars
+              svg3.selectAll("myRect")
+                .data(data)
+                .enter()
+                .append("rect")
+                .attr("x", x(0))
+                .attr("y", function (d) { return y(d.hashtag); })
+                .attr("width", function (d) { return x(d.value); })
+                .attr("height", y.bandwidth())
+                .attr("fill", "#69b3a2")
+
+
+              // .attr("x", function(d) { return x(d.Country); })
+              // .attr("y", function(d) { return y(d.Value); })
+              // .attr("width", x.bandwidth())
+              // .attr("height", function(d) { return height - y(d.Value); })
+              // .attr("fill", "#69b3a2")
+
+            })
+
+          </script>
+
+          <p>&nbsp;</p>
+          <button type="button" class="btn btn-primary btn-lg px-4 me-sm-3"
+            onclick="window.open('es-un-terremoto.html', '_self')">Se confirma que es un terremoto</button>
+          <p>&nbsp;</p>
+
+        </div>
+    </div>
+    </main>
+  </div>
+  </div>
+
+
+  <script src="assets/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js"
+    integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE"
+    crossorigin="anonymous"></script> -->
+  <!-- <script src="js/dashboard.js"></script> -->
+</body>
+
+</html>
